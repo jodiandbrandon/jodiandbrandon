@@ -1,0 +1,80 @@
+@import url(../smoothy/font.css);
+/* Write your CSS! */
+html {
+  height: 100%;
+  font-family: "mrs-eaves",serif;
+  background: 25% center no-repeat;
+  background-size: cover; }
+  html.home {
+    background-image: url(/assets/img/home-bg.jpg);
+    color: white; }
+    html.home main .logo {
+      width: 100%; }
+    html.home main time {
+      display: block;
+      font-size: 1.5em;
+      padding-top: 1em; }
+  html.rsvp {
+    background-image: url(/assets/img/bg-2.jpg); }
+
+.logo {
+  width: 320px;
+  display: block; }
+  .logo svg {
+    width: 100%;
+    height: auto; }
+
+main {
+  border: 2px solid white;
+  position: fixed;
+  top: 2em;
+  right: 2em;
+  bottom: 2em;
+  left: 2em;
+  padding: 2em;
+  padding-left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
+
+nav {
+  display: flex;
+  position: fixed;
+  bottom: 2em;
+  left: 2em;
+  right: 2em;
+  justify-content: space-between;
+  align-items: bottom;
+  display: none; }
+  nav:before, nav:after {
+    content: '';
+    width: 30%;
+    border-bottom: 2px solid white; }
+  nav a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: .2em;
+    padding: 1em 1em;
+    font-size: 1.2em;
+    white-space: nowrap;
+    position: relative;
+    top: 1.5em; }
+
+h1 {
+  font-size: 4em; }
+
+h1, h2 {
+  font-family: smoothycursive;
+  font-weight: normal; }
+
+h2, h3, h4, nav {
+  font-family: "freight-sans-pro",sans-serif; }
+
+nav, a {
+  color: inherit; }
+
+@media screen and (max-width: 760px) {
+  main {
+    padding: 2em; } }
