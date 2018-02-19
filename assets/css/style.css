@@ -206,4 +206,12 @@ nav, a {
 
 @media screen and (max-width: 760px) {
   main {
-    padding: 2em; } }
+    padding: 2em; }
+    main > * {
+      flex-basis: 90%; }
+
+  nav {
+    bottom: 4vw; }
+
+  footer:before {
+    bottom: 8vw; } }
