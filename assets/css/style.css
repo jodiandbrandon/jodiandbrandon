@@ -7,7 +7,8 @@ html {
   font-size: 24px;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background: white; }
 
 *, *:before, *:after {
   box-sizing: inherit; }
@@ -26,9 +27,9 @@ html {
 a {
   color: black; }
 
-button, .btn {
-  border: 4px double black;
-  font-size: inherit;
+button, .btn, footer nav {
+  border: 6px double black;
+  font-size: 20px;
   font-family: inherit;
   padding: .5em;
   background: black;
@@ -87,11 +88,11 @@ main {
   filter: blur(50px);
   opacity: 0;
   background-color: white;
-  transition: filter 1s cubic-bezier(0.68, 0, 0.265, 1); }
+  transition: filter 0.5s cubic-bezier(0.68, 0, 0.265, 1); }
   main p {
     margin: 1em 0; }
-    main p .btn {
-      margin: 0.5em; }
+    main p .btn, main p footer nav, footer main p nav {
+      margin: 0.25em; }
   main ul {
     max-width: 80%;
     list-style: none;
@@ -106,10 +107,13 @@ main {
         border: 0; }
       main ul li a:after {
         content: ' »'; }
+  main a {
+    color: inherit; }
   main > * {
     position: relative;
     z-index: 2;
-    flex-basis: 50%; }
+    flex-basis: 50%;
+    color: inherit; }
   main:after, main:before {
     content: '';
     position: absolute;
@@ -133,20 +137,37 @@ main {
     background-image: url(../img/bg-2.jpg);
     opacity: 0.2; }
   main#about:before {
-    background-image: url(../img/bg-2.jpg);
+    background-image: url(../img/bg-3.jpg);
     opacity: 0.2; }
   main#registry:before {
-    background-image: url(../img/bg-2.jpg);
+    background-image: url(../img/bg-4.jpg);
     opacity: 0.2; }
-  main:not(#home) {
+  main#menu {
+    background-color: black;
+    color: white; }
+    main#menu:after {
+      box-shadow: inset 0 0 200px white;
+      opacity: 0; }
+    main#menu nav a {
+      padding: .5em 1em;
+      display: block;
+      font-family: "mrs-eaves",serif;
+      text-decoration: none; }
+      main#menu nav a:after {
+        content: ' »'; }
+    main#menu:target ~ footer nav a[href="#menu"] {
+      display: none; }
+    main#menu:target ~ footer nav a[href="#home"] {
+      display: block; }
+      main#menu:target ~ footer nav a[href="#home"]:before {
+        content: 'Close'; }
+  main:not(#home):not(#menu) {
     color: black;
     text-shadow: none; }
-    main:not(#home):target ~ footer:before {
+    main:not(#home):not(#menu):target ~ footer:before {
       border-color: black; }
-    main:not(#home):target ~ footer nav:before, main:not(#home):target ~ footer nav:after {
+    main:not(#home):not(#menu):target ~ footer nav:before, main:not(#home):not(#menu):target ~ footer nav:after {
       background-color: black; }
-    main:not(#home):target ~ footer nav a {
-      color: black; }
   main .logo {
     width: 100%; }
   main time {
@@ -168,64 +189,40 @@ footer:before {
   bottom: 4vw;
   right: 4vw;
   border: 2px solid currentColor;
-  border-bottom: 0;
   z-index: 1;
   pointer-events: none; }
-
-nav {
-  display: flex;
+footer nav {
+  display: inline-flex;
   position: fixed;
-  bottom: 0;
-  left: 4vw;
-  right: 4vw;
+  bottom: 4vw;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  margin-bottom: 2px;
   justify-content: center;
   align-items: center;
   z-index: 3;
-  color: inherit; }
-  nav:before, nav:after {
-    content: '';
-    width: 30%;
-    height: 2px;
-    background: currentColor; }
-  nav:before {
+  color: inherit;
+  padding: 0; }
+  footer nav:before {
     margin-right: auto; }
-  nav:after {
+  footer nav:after {
     margin-left: auto; }
-  nav a {
-    text-transform: uppercase;
+  footer nav a {
+    color: white;
+    padding: .5em 1.25em;
     text-decoration: none;
-    font-weight: 800;
-    letter-spacing: .25em;
-    padding: 0 2vw;
-    height: 8vw;
-    font-size: 1.4em;
-    text-shadow: 0 0.05em 0.1em rgba(0, 0, 0, 0.2);
-    white-space: nowrap;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: inherit; }
-    nav a:before {
-      content: '';
-      position: absolute;
-      bottom: 1vw;
-      left: 0;
-      top: 0;
-      right: 0;
-      opacity: 0;
-      transform-origin: center bottom;
-      transform: translateY(0.5vw);
-      border-bottom: 2px solid currentColor;
-      margin-bottom: -1px; }
-    nav a:hover {
-      text-decoration: underline; }
+    font-family: "mrs-eaves",serif; }
+    footer nav a[href="#menu"] {
+      display: none; }
+    footer nav a[href="#home"]:before {
+      content: 'Home'; }
 
 #rsvp:target ~ footer nav a[href="#rsvp"],
 #home:target ~ footer nav a[href="#home"],
 #about:target ~ footer nav a[href="#about"],
 #registry:target ~ footer nav a[href="#registry"] {
-  text-decoration: underline; }
+  background: white;
+  color: black; }
 
 h1 {
   font-size: 2rem; }
@@ -237,11 +234,10 @@ h1, h2 {
 h2, h3, h4, nav, nav a {
   font-family: "freight-sans-pro",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-nav a {
-  color: inherit;
-  font-size: .9rem; }
-
 @media screen and (max-width: 760px) {
+  html {
+    font-size: 16px; }
+
   main > * {
     flex-basis: 100%; }
 
@@ -250,8 +246,14 @@ nav a {
     width: 100% !important;
     display: inline-block; }
 
-  nav {
-    bottom: 4vw; }
-
   footer:before {
-    bottom: 8vw; } }
+    bottom: 10vw; }
+
+  footer nav {
+    bottom: 10vw; }
+    footer nav a {
+      display: none; }
+      footer nav a[href="#menu"] {
+        display: block; }
+        footer nav a[href="#menu"]:before {
+          content: 'Menu'; } }
