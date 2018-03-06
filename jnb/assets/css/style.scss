@@ -50,6 +50,10 @@ button, .btn{
 
 form{
 
+  >.submitted-message{
+    display: none;
+  }
+
   &.submitting{
     &:before{
       content: 'Loading...';
@@ -59,11 +63,11 @@ form{
     }
   }
   &.submitted{
-    &:before{
-      content: 'Thanks!';
-    }
     >*{
       display: none;
+    }
+    >.submitted-message{
+      display: block;
     }
   }
   label{
@@ -334,6 +338,9 @@ h2,h3,h4,nav, nav a{
 @media screen and (max-width: 760px){
   html{
     font-size: 18px;
+  }
+  h1{
+    font-size: 1.8rem;
   }
   main{
     &>*{

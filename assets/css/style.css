@@ -29,7 +29,7 @@ a {
 
 button, .btn, footer nav {
   border: 6px double black;
-  font-size: 18px;
+  font-size: 20px;
   font-family: inherit;
   padding: .5em;
   background: black;
@@ -236,7 +236,7 @@ h2, h3, h4, nav, nav a {
 
 @media screen and (max-width: 760px) {
   html {
-    font-size: 18px; }
+    font-size: 16px; }
 
   main > * {
     flex-basis: 100%; }
@@ -255,5 +255,7 @@ h2, h3, h4, nav, nav a {
       display: none; }
       footer nav a[href="#menu"] {
         display: block; }
+        footer nav a[href="#menu"]:before {
+          content: 'Menu'; } }splay: block; }
         footer nav a[href="#menu"]:before {
           content: 'Menu'; } }

@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+  
         <!-- Hammer reload -->
           <script>
             setInterval(function(){
@@ -29,13 +29,12 @@
             }, 1000)
           </script>
         <!-- /Hammer reload -->
-
+      
   <link rel='stylesheet' href='assets/css/style.css'>
 
-  <link href="assets/favicon.ico" rel="shortcut icon">
-  <link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
   <link rel="stylesheet" href="https://use.typekit.net/cnd2iub.css">
   <title>Jodi and Brandon — June 16th, 2018</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 
@@ -62,11 +61,12 @@
 
   <main id="rsvp">
     <div>
-      <h1>Rsvp</h1>
-
-      <p>We'd love to have you come and celebrate with us! If you can make it, let us know with the form below.</p>
 
       <form id="rsvp-form">
+
+        <h1>Rsvp</h1>
+
+        <p>We'd love to have you come and celebrate with us! If you can make it, let us know with the form below.</p>
 
         <div>
           <label for="guest_name">Your Name</label>
@@ -82,11 +82,14 @@
           <button type="submit" id="submit-form">Yay!</button>
         </div>
 
+        <div class="submitted-message">
+          <h1>Thanks!</h1>
+          <p>We can't wait to dance and celebrate with you!</p>
+        </div>
+
       </form>
       <script>
-
       var $form = $('#rsvp-form')
-
         $form
           .on('submit', function(e) {
           $form.addClass('submitting')
@@ -96,9 +99,9 @@
             method: "GET",
             dataType: "json",
             data: $form.serialize()
-          }).success(
+          }).done(function(){
             $form.removeClass('submitting').addClass('submitted')
-          );
+          });
         })
       </script>
     </div>
