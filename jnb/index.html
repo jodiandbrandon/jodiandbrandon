@@ -10,7 +10,7 @@
   <!-- @stylesheet normalize style -->
 
   <link rel="stylesheet" href="https://use.typekit.net/cnd2iub.css">
-  <title>Jodi and Brandon — June 16th, 2018</title>
+  <title>Jodi and Brandon — June 16th, 2018 @ 4pm</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
@@ -32,7 +32,7 @@
         </defs>
         </svg>
       </a>
-      <time>June 16th, 2018</time>
+      <time><em>June 16th, 2018<br/>at 4PM</em></time>
     </div>
   </main>
 
@@ -45,18 +45,21 @@
 
         <p>We'd love to have you come and celebrate with us! If you can make it, let us know with the form below.</p>
 
-        <div>
-          <label for="guest_name">Your Name</label>
-          <input type="text" id="guest_name" name="guest_name" required placeholder="Your Full Name"/>
+        <div class="fieldset">
+          <div class="full">
+            <label for="guest_name">Your Name</label>
+            <input type="text" id="guest_name" name="guest_name" required placeholder="Your Full Name"/>
+          </div>
         </div>
+        <div class="fieldset">
+          <div>
+            <label for="party_size"># in Party</label>
+            <input type="text" id="party_size" name="party_size" required placeholder=""/>
+          </div>
 
-        <div class="w4em">
-          <label for="party_size"># in Party</label>
-          <input type="text" id="party_size" name="party_size" required placeholder=""/>
-        </div>
-
-        <div>
-          <button type="submit" id="submit-form">Yay!</button>
+          <div class="w4em">
+            <button type="submit" id="submit-form">Yay!</button>
+          </div>
         </div>
 
         <div class="submitted-message">
